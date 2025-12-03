@@ -59,6 +59,66 @@ public class Player {
     }
 
     public ShotResult processShot(int x, int y, int shotType){
+        ShotResult finalResult = new ShotResult(ShotResult.Type.MISS, Message.getMissMessage());
+        List<GeometrySystem> targets = new ArrayList<>();
+        targets.add(new GeometrySystem(x, y));
 
+        if(shotType == 1){
+            for(int i=0; i<10; i++){
+                if(i != x) targets.add(new GeometrySystem(i, y));
+                if(i != y) targets.add(new GeometrySystem(x, i));
+            }
+        }else if(shotType == 2){
+            for(int i = x-1; i <= x+1; i++){
+                for(int j = y-1; j <= y+1; j++)
+                    if(isValid(i, j) && (i!=x || j!=y)) targets.add(new GeometrySystem(i, j));
+            }
+        }
+
+        boolean hitSomething = false;
+        boolean sunkSomething = false;
+
+        for(GeometrySystem t : targets){
+            ShotResult result = receiveSingleShot(t.getX(), t.getY());
+            if(result.getType() != ShotResult.Type.ALREADY_SHOT)
+                finalResult.addAffectedCell(t.getX(), t.getY());
+            if(result.getType() == ShotResult.Type.HIT){
+                hitSomething = true;
+                finalResult = result;
+            }else if(result.getType() == ShotResult.Type.SUNK){
+                hitSomething = true;
+                sunkSomething = true;
+                finalResult = result;
+            }
+        }
+
+        if(hitSomething && !sunkSomething)
+            return new ShotResult(ShotResult.Type.HIT, Message.getHitMessage());
+
+        return finalResult;
+    }
+
+    private ShotResult receiveSingleShot(int x, int y){
+        if(!isValid(x, y)) return new ShotResult(ShotResult.Type.ALREADY_SHOT, "");
+
+        if(map[x][y] == 1){
+            map[x][y] = 2;
+            remainingCells--;
+            Boat hitBoat = getShipPosition(x, y);
+            if(hitBoat != null){
+                hitBoat.hitCheck();
+                if(hitBoat.checkSunk()){
+                    ShotResult res = new ShotResult(ShotResult.Type.SUNK, Message.getSunkMessage(hitBoat.getBoatName()));
+                    res.setSunkShipInfo(hitBoat.getBoatName(), hitBoat.getBoatSize());
+                    return res;
+                }
+            }
+            return new ShotResult(ShotResult.Type.HIT, Message.getHitMessage());
+        }
+        if(map[x][y] == 0){
+            map[x][y] = 3;
+            return new ShotResult(ShotResult.Type.MISS, Message.getMissMessage());
+        }
+        return new ShotResult(ShotResult.Type.ALREADY_SHOT, Message.getAlreadyShotMessage());
     }
 }
