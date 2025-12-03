@@ -59,6 +59,6 @@ public class Player {
     }
 
     public ShotResult processShot(int x, int y, int shotType){
-        
+
     }
 }

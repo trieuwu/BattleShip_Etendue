@@ -58,4 +58,8 @@ Bổ sung tính năng sử dụng vật phẩm hỗ trợ trong trận đấu:
 ### Bước 1: Clone dự án về máy
 Mở Git Bash và chạy lệnh:
 ```bash
-git clone [https://github.com/USERNAME-CUA-BAN/BattleShip-Project.git](https://github.com/USERNAME-CUA-BAN/BattleShip-Project.git)
+git clone [git clone https://github.com/trieuwu/BattleShip_Etendue.git](git clone https://github.com/trieuwu/BattleShip_Etendue.git)
+```
+
+# Tác giả
+Hà Tiến Triệu 
