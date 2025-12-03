@@ -2,7 +2,7 @@
 
 > **Bài tập giữa khóa Training JavaCore - D24 ProPTIT**
 
-5h30p sáng 4/12/2025. HTT chưa được ngủ (chứ không phải dậy sớm code) nên file README này được viết 100% bằng Gemini 3. Đừng đòi hỏi gì thêm!
+5h30p sáng 4/12/2025. HTT chưa được ngủ (chứ không phải dậy sớm code) nên file README này được viết 63% bằng Gemini 3.
 ---
 
 ## Mục lục
@@ -18,7 +18,7 @@
 ## Giới thiệu
 BattleShip là trò chơi đối kháng 1vs1. Trong dự án này, người chơi sẽ đấu với Máy (Bot). Nhiệm vụ của bạn là bố trí hạm đội của mình ẩn giấu trên bản đồ và đoán tọa độ hạm đội của đối phương để tiêu diệt.
 
-## ✅ Chức năng hoàn thiện
+## Chức năng hoàn thiện
 
 ### 1. Cơ chế Game (Gameplay)
 - **Chế độ chơi:** Người đấu với Máy (PvE).
@@ -38,15 +38,17 @@ BattleShip là trò chơi đối kháng 1vs1. Trong dự án này, người chơ
 ### 1. Hệ thống Bot thông minh (AI)
 Nâng cấp đối thủ máy với 3 cấp độ khó tùy chọn:
 - **Dễ (Easy):** Bắn ngẫu nhiên hoàn toàn.
-- **Khó (Hard):** Có thuật toán săn tìm (Hunt & Target), biết khoanh vùng khi bắn trúng.
-- **Không thể thắng (Impossible):** Bot tối ưu hóa xác suất trúng cực cao, thử thách kỹ năng tối thượng của người chơi.
+- **Khó (Hard):** Tìm vị trí có tỉ lệ cao trúng bằng HeatMap cập nhật liên tục khi bắn. Có khả năng dò khi bắn trúng tàu người chơi.
+- **Không thể thắng (Impossible):** Nói đơn giản là trừ khi hack map thì win bot (vì bot hack map)
 
 ### 2. Kho đồ (Inventory) & Vật phẩm đặc biệt
 Bổ sung tính năng sử dụng vật phẩm hỗ trợ trong trận đấu:
-- **💣 Bom IT:** (Vũ khí công nghệ cao - Tính năng đang hoàn thiện logic sát thương).
-- **☢️ Bom nguyên tử:** Vũ khí hủy diệt diện rộng, có khả năng quét sạch một vùng bản đồ lớn.
-
+- **💣 Bom IT:** Dựa theo game Đặt bom IT8. Nổ theo hình chữ thập, clear 1 hàng và một cột.
+- **☢️ Bom nguyên tử:** Clear 1 vùng 3/3 với trung tâm là ô muốn bắn
+- **...updating**
 ---
+### 3. Cơ chế PvP. 
+Hiện cơ chế PvP ở giai đoạn đang phát triển 36%. Chưa có idea nào đủ hay cho cơ chế PvP trên 1 màn console
 
 ## 🛠 Công nghệ sử dụng
 - **Ngôn ngữ:** Java (JDK 17).
@@ -63,4 +65,5 @@ git clone [git clone https://github.com/trieuwu/BattleShip_Etendue.git](git clon
 
 # Tác giả
 Hà Tiến Triệu 
+
 ê tự dưng nhận ra đoạn này mục lục bị sai, đoạn này tự thêm đấy, chứ không phải do gemini đâu, bug ở đây chưa debug nhé. Bao giờ final thì debug (hoặc kệ mãi mãi)
