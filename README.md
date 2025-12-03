@@ -2,7 +2,7 @@
 
 > **Bài tập giữa khóa Training JavaCore - D24 ProPTIT**
 
-4h45p sáng 4/12/2025. HTT chưa được ngủ nên file README này được viết 100% bằng Gemini 3. Đừng đòi hỏi gì thêm!
+5h30p sáng 4/12/2025. HTT chưa được ngủ (chứ không phải dậy sớm code) nên file README này được viết 100% bằng Gemini 3. Đừng đòi hỏi gì thêm!
 ---
 
 ## Mục lục
@@ -63,3 +63,4 @@ git clone [git clone https://github.com/trieuwu/BattleShip_Etendue.git](git clon
 
 # Tác giả
 Hà Tiến Triệu 
+ê tự dưng nhận ra đoạn này mục lục bị sai, đoạn này tự thêm đấy, chứ không phải do gemini đâu, bug ở đây chưa debug nhé. Bao giờ final thì debug (hoặc kệ mãi mãi)
